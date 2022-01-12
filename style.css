@@ -1,5 +1,9 @@
 /* application ================================ */
-body, div, img, ul, li, p {
+* {
+  box-sizing: border-box;
+}
+
+body, div, img, ul, li, p, h2 {
   margin: 0;
   padding: 0;
 }
@@ -26,11 +30,23 @@ p {
   line-height: 1.5;
 }
 
-/* header ================================ */
+@media screen and (max-width: 1080px) {
+  main {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  main {
+    padding-top: 52px;
+  }
+}
+
+/* header ===================================== */
 .header {
   position: absolute;
   width: 100%;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
 .header_container {
@@ -40,9 +56,14 @@ p {
   justify-content: space-between;
 }
 
-.header_logo_image {
+.header_logo_image_pc {
   display: block;
   height: 20px;
+}
+
+.header_logo_image_sp {
+  display: none;
+  height: 16px;
 }
 
 .header_nav_list {
@@ -84,12 +105,46 @@ p {
   color: white;
 }
 
-/* first_view ================================ */
+@media screen and (max-width: 1080px) {
+  .header {
+    background-color: #fff;
+  }
+  
+  .header_logo_image_sp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .header_logo_image_pc {
+    display: none;
+  }
+  
+  .header_logo_image_sp {
+    display: block;
+  }
+  
+  .header_container {
+    margin: 0 20px;
+  }
+}
+
+/* first_view ================================= */
 .first_view {
   padding: 100px 0 28px;
   background-image: url(https://camp.potepan.com/wp-content/themes/potepancamp/assets/images/home/first-view/top-hero.jpg);
   background-size: cover;
   background-position: center;
+}
+
+.first_view_main_image-sp {
+  display: none;
+  width: 100%;
 }
 
 .first_view_container {
@@ -104,6 +159,7 @@ p {
 }
 
 .first_view_content_title {
+  margin-bottom: 15px;
   text-align: center;
   font-size: 37px;
   line-height: 55px;
@@ -162,4 +218,94 @@ p {
 
 .first_view_footnotes a {
   color: #a0a0a0;
+}
+
+@media screen and (max-width: 1080px) {
+  .header_nav_list {
+    display: none;
+  }
+  
+  .header_nav_hamburger {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    height: 21px;
+    width: 30px;
+  }
+  
+  .header_nav_hamburger_line {
+    position: absolute;
+    display: block;
+    top: 50%;
+    height: 3px;
+    width: 100%;
+    background-color: #000;
+    border-radius: 10px;
+  }
+  
+  .header_nav_hamburger_line:first-child {
+    top: 0;
+  }
+  
+  .header_nav_hamburger_line:last-child {
+    top: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .first_view {
+    padding-top: 0;
+    background-image: none;
+  }
+  
+  .first_view_main_image-sp {
+    display: block;
+  }
+  
+  .first_view_container {
+    margin-top: -45vw;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .first_view_content {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .first_view_content_title {
+    margin-left: calc(((100vw - 100%) / 2) * -1);
+    margin-right: calc(((100vw - 100%) / 2) * -1);
+    font-size: 25px;
+    line-height: 35px;
+  }
+  
+  .first_view_content_images {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .first_view_content_images img {
+    width: 27.5%;
+  }
+  
+  .first_view_content_buttons {
+    flex-direction: column;
+  }
+  
+  .first_view_content_buttons a {
+    width: 100% !important;
+    font-size: 14px;
+  }
+  
+  .first_view_content_buttons a:first-child {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .first_view_content_buttons a:last-child {
+    height: 45px;
+  }
 }
