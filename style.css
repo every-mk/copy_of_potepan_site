@@ -134,6 +134,24 @@ p {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .header_logo {
+    transition: opacity 0.2s 0s ease;
+  }
+  
+  .header_logo:hover {
+    opacity: 0.8;
+  }
+  
+  .header_nav_list_item {
+    transition: opacity 0.2s 0s ease;
+  }
+  
+  .header_nav_list_item:hover {
+    opacity: 0.8;
+  } 
+}
+
 /* first_view ================================= */
 .first_view {
   padding: 100px 0 28px;
@@ -307,5 +325,15 @@ p {
   
   .first_view_content_buttons a:last-child {
     height: 45px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .first_view_content_buttons a {
+    transition: opacity 0.2s 0s ease;
+  }
+  
+  .first_view_content_buttons a:hover {
+    opacity: 0.8;
   }
 }
