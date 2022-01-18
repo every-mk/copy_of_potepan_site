@@ -1,6 +1,15 @@
 /* application ================================ */
+:root {
+  --color-orange: darkorange;
+  --color-_footnote: #a0a0a0;
+}
+
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;                       /* 要素幅にボーダーを含める. */
+}
+
+html {
+  webkit-text-size-adjust: 100%;                /* テキストサイズの自動調整をオフにする. */
 }
 
 body, div, img, ul, li, p, h2 {
@@ -9,7 +18,8 @@ body, div, img, ul, li, p, h2 {
 }
 
 body {
-  font-family: "Hiragino kaku Gothic ProN";
+  -webkit-font-smoothing: antialiased;          /* ジャギーを除去する. */
+  font-family: "游ゴシック", YuGothic;
   font-size: 14px;
 }
 
@@ -99,10 +109,10 @@ p {
   display: flex;
   height: 40px;
   align-items: center;
-  background-color: orange;
+  background-color: var(--color-orange);
   border-radius: 40px;
   font-size: 12px;
-  color: white;
+  color: #fff;
 }
 
 @media screen and (max-width: 1080px) {
@@ -167,7 +177,9 @@ p {
 
 .first_view_container {
   position: relative;
+  margin: 0 auto;                               /*.横幅が最大の場合は中央に寄せる. */
   padding: 0 50px;
+  max-width: 1140px;
 }
 
 .first_view_content {
@@ -206,6 +218,7 @@ p {
 }
 
 .first_view_content_buttons a {
+  cursor: pointer;
   display: flex;
   height: 65px;
   border-radius: 40px;
@@ -218,7 +231,7 @@ p {
 .first_view_content_buttons a:first-child {
   width: 305px;
   margin-right: 15px;
-  background-color: orange;
+  background-color: var(--color-orange);
   color: #fff;
 }
 
@@ -231,11 +244,11 @@ p {
 
 .first_view_footnotes {
   font-size: 12px;
-  color: #a0a0a0;
+  color: var(--color-_footnote);
 }
 
 .first_view_footnotes a {
-  color: #a0a0a0;
+  color: var(--color-_footnote);
 }
 
 @media screen and (max-width: 1080px) {
@@ -292,8 +305,8 @@ p {
   }
   
   .first_view_content_title {
-    margin-left: calc(((100vw - 100%) / 2) * -1);
-    margin-right: calc(((100vw - 100%) / 2) * -1);
+    margin-left: calc(50% - 50vw);              /*.文字列をウィンドウ幅まで表示させる為に */
+    margin-right: calc(50% - 50vw);             /*.パディング幅分のネガティブマージンを指定する. */
     font-size: 25px;
     line-height: 35px;
   }
@@ -334,6 +347,135 @@ p {
   }
   
   .first_view_content_buttons a:hover {
+    opacity: 0.8;
+  }
+}
+
+/* about wapper =============================== */
+.about_wrapper {
+  padding: 45px 0;
+  background-color: var(--color-orange);
+}
+
+.about {
+  margin: 0 auto;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+}
+
+.about_title {
+  width: 53%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about_title h2, .about_title p {
+  color: #fff;
+}
+
+.about_title h2 {
+  width: 100%;
+  line-height: 74px;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.about_title h2 span {
+  font-size: 46px;
+  text-shadow: 2px 0px 2px #fff;                /*.font-weight: 800以降が効かない代わりに影を付ける. */
+}
+
+.about_title br {
+  display: none;
+}
+
+.about_title p {
+  margin-top: 15px;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.about_button {
+  width: 250px;
+}
+
+.about_button a {
+  cursor: pointer;
+  height: 64px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 40px;
+  background-color: #fff;
+  text-align: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--color-orange);
+}
+
+.about_button a span:first-child {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.about_button a span:last-child {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 1024px)
+{
+  .about {
+   flex-direction: column; 
+  }
+  
+  .about_title 
+  {
+    margin-bottom: 0;
+    width: 100%;
+  }
+  
+  .about_button {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 767px)
+{
+  .aboutWrapper {
+    padding: 30px 0;
+  }
+  
+  .about {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: none;
+  }
+  
+  .about_title h2 {
+    line-height: 1.2;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .about_title br {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .about_button a {
+    transition: opacity 0.2s 0s ease;
+  }
+  
+  .about_button a:hover {
     opacity: 0.8;
   }
 }
